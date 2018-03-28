@@ -21,6 +21,7 @@
     "@types/cookie-parser": "^1.4.1",
     "@types/cors": "^2.8.3",
     "@types/q": "^1.0.7",
+    "@types/socket.io": "^1.4.32",
     "bcrypt-nodejs": "^0.0.3",
     "bluebird": "^3.5.1",
     "body-parser": "^1.18.2",
@@ -44,6 +45,7 @@
     "pug": "^2.0.0-rc.4",
     "q": "^1.5.1",
     "request": "^2.83.0",
+    "socket.io": "^2.0.4",
     "ts-promise": "^1.0.0"
   },
   "devDependencies": {

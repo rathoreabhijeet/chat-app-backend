@@ -42,12 +42,12 @@ passport.use(new LocalStrategy({ usernameField: "email" }, (email, password, don
 }));
 
 export let isAuthenticated = (req: Request, res: Response, next: NextFunction) => {
-  // if(!req.user)
-  //   User.findById("5a976601aa02df3d03f98a9c").populate('profile.picture').exec((err, user) => {
-  //    req.user = user;
-  if (req.isAuthenticated()) {
-    return next();
-  }
-  res.status(401).send({});
-  //});
+  if (!req.user)
+    User.findById("5abb91ca0b2eee1a48c711cc").exec((err, user) => {
+      req.user = user;
+      if (req.isAuthenticated()) {
+        return next();
+      }
+      res.status(401).send({});
+    });
 };
