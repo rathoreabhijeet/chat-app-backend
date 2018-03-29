@@ -29,13 +29,16 @@ const ChatRoomSchema = new Schema({
         default: 'active',
         enum: ['active', 'inactive'],
     },
+    type: {
+        type: String,
+        default: 'user',
+        enum: ['user', 'group'],
+    },
     last_message: {
         type: Schema.Types.ObjectId,
         ref: 'Message'
     }
 }, { timestamps: true });
 ChatRoomSchema.plugin(mongoosePaginate);
-// export const ChatRoom: ChatRoomType = mongoose.model<ChatRoomType>('ChatRoom', ChatRoomSchema);
 interface ChatRoomModel<T extends Document> extends PaginateModel<T> { };
-//export const ChatRoom = model("ChatRoom", ChatRoomSchema);
 export const ChatRoom: ChatRoomModel<ChatRoomInterface> = model<ChatRoomInterface>('ChatRoom', ChatRoomSchema) as ChatRoomModel<ChatRoomInterface>;

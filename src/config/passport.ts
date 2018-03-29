@@ -6,13 +6,13 @@ import * as _ from "lodash";
 // import { User, UserType } from '../models/User';
 import { default as User } from "../models/User";
 import { Request, Response, NextFunction } from "express";
-
+/* LocalStrategy of Passport Session */
 const LocalStrategy = passportLocal.Strategy;
-
+/* Passport serialize user method */
 passport.serializeUser<any, any>((user, done) => {
   done(undefined, user._id);
 });
-
+/* Passport deserialize user method */
 passport.deserializeUser((id, done) => {
   User.findById(id).exec((err, user) => {
     done(err, user);
@@ -42,12 +42,8 @@ passport.use(new LocalStrategy({ usernameField: "email" }, (email, password, don
 }));
 
 export let isAuthenticated = (req: Request, res: Response, next: NextFunction) => {
-  if (!req.user)
-    User.findById("5abb91ca0b2eee1a48c711cc").exec((err, user) => {
-      req.user = user;
-      if (req.isAuthenticated()) {
-        return next();
-      }
-      res.status(401).send({});
-    });
+  if (req.isAuthenticated()) {
+    return next();
+  }
+  res.status(401).send({});
 };

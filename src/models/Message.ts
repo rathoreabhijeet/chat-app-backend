@@ -44,7 +44,5 @@ const MessageSchema = new Schema({
     },
 }, { timestamps: true });
 MessageSchema.plugin(mongoosePaginate);
-// export const Message: MessageType = mongoose.model<MessageType>('Message', MessageSchema);
 interface MessageModel<T extends Document> extends PaginateModel<T> { };
-//export const Message = model("Message", MessageSchema);
 export const Message: MessageModel<MessageInterface> = model<MessageInterface>('Message', MessageSchema) as MessageModel<MessageInterface>;

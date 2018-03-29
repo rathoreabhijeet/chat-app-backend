@@ -56,7 +56,11 @@ app.use((req, res, next) => {
   res.locals.user = req.user;
   next();
 });
-app.use('/public', express.static(path.join(__dirname, "public"), { maxAge: 31557600000 }));
-app.use('/', Routes.homeRouter);
+app.use('/', express.static(path.join(__dirname, "public"), { maxAge: 31557600000 }));
 app.use('/user', Routes.userRouter);
+app.use('/chat', Routes.chatRoomRouter);
+app.use('/message', Routes.messgaeRouter);
+app.get('*', (req: any, res: any) => {
+  res.sendFile(__dirname + '/public/index.html');
+});
 module.exports = app;
