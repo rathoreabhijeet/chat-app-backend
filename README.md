@@ -1,3 +1,14 @@
+## Features included
+
+1. User login
+2. User signup
+3  Create new chat room with user
+4. Create socket room using logged in user id
+5. Can chat existing user by selecting from list or create new user dropdown
+6. Multi window single user chat
+7. After logout, disconnect from all exiting window and go to login screen
+8. Change user password
+
 # TypeScript Node Starter
 
 [![Dependency Status](https://david-dm.org/Microsoft/TypeScript-Node-Starter.svg)](https://david-dm.org/Microsoft/TypeScript-Node-Starter) [![Build Status](https://travis-ci.org/Microsoft/TypeScript-Node-Starter.svg?branch=master)](https://travis-ci.org/Microsoft/TypeScript-Node-Starter) 
